@@ -1,0 +1,34 @@
+<ion-view view-title="Add New Asset">
+  <ion-content>
+    <form name="formAddAsset" ng-submit="addAsset()">
+      <div class="list list-inset">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Asset Type
+          </div>
+          <select name="type" ng-model="asset.type">
+            <option selected value="pole">Pole</option>
+            <option value="transformer">Transformer</option>
+            <option value="manual switch">Manual Switch</option>
+            <option value="line">Line</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <input type="text" name="address" ng-model="asset.address" placeholder="Asset Address">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="name" ng-model="asset.name" placeholder="Asset Name">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="lat" ng-model="asset.lat" placeholder="Latitude">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="long" ng-model="asset.long" placeholder="Longitude">
+        </label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive activated">Create Asset</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

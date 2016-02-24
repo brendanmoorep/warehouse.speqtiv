@@ -1,0 +1,17 @@
+<ion-view view-title="AssetsList">
+  <ion-content class="has-header">
+    <div class="bar bar-header">
+      <div class="button-bar">
+        <a class="button activated">List View</a>
+        <a class="button">Map View</a>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item class="item-icon-left item-icon-right" ng-repeat="asset in assets" href="#/app/assets/{{asset.id}}">
+        <i class="icon ion-location"></i>
+        <i class="icon item-icon-right"></i>
+        {{asset.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

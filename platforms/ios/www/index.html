@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+   <!-- <script async defer
+            src="//maps.googleapis.com/maps/api/js?key=AIzaSyCQO1mT3GQpPtGOk8RIuxqMVt-39uBSdNI">
+    </script>-->
+
+    <!-- ionic/angularjs js -->
+    <!--<script src='lib/lodash/dist/lodash.3.10.1.js'></script>-->
+    <script src='lib/lodash/lodash.min.js'></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src='lib/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+    <script src="lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <script src="app/app.js"></script>
+
+
+    <!-- Controllers -->
+    <script src="app/layout/AppCtrl.js"></script>
+    <script src="app/account/AccountCtrl.js"></script>
+    <script src="app/assets/add/AssetsAddCtrl.js"></script>
+    <script src="app/assets/edit/AssetsEditCtrl.js"></script>
+    <script src="app/assets/list/AssetsListCtrl.js"></script>
+    <script src="app/assets/details/AssetsDetailsCtrl.js"></script>
+    <script src="app/assets/map/AssetMapCtrl.js"></script>
+    <script src="app/issues/IssuesCtrl.js"></script>
+    <script src="app/requests/requestsCtrl.js"></script>
+
+    <!-- Services -->
+    <script src="services/assetServices.js"></script>
+    <script src="services/geoLocationServices.js"></script>
+
+  </head>
+
+  <body ng-app="warehouse" class="platform-ios platform-cordova platform-webview">
+    <ion-nav-view></ion-nav-view>
+    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAWFNrB9IwIungGuYDn-WsgcErT7ZGQ9F0&sensor=false"></script>
+    <!--<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>-->
+  </body>
+</html>

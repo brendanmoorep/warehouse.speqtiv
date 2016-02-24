@@ -1,0 +1,15 @@
+<ion-view cache-view="false" view-title="Asset Map">
+  <ion-content>
+    <h1>Map</h1>
+    <ui-gmap-google-map center="map.center"
+                        zoom="map.zoom"
+                        draggable="true"
+                        options="options"
+                        bounds="map.bounds"
+                        control="map.control"
+                        events="map.events">
+      <ui-gmap-markers models="map.markers" idkey="map.markers.id" coords="'self'" icon="'icon'">
+      </ui-gmap-markers>
+    </ui-gmap-google-map>
+  </ion-content>
+</ion-view>
