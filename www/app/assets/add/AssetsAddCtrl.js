@@ -23,12 +23,6 @@
 
     };
 
-
-
-
-
-    //uiGmapGoogleMapApi.then(function(maps) {});
-
   }]);
 })();
 

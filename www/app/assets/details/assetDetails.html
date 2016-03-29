@@ -1,7 +1,62 @@
 <ion-view view-title="Details">
   <ion-content>
-    <h1>Asset {{id}} Details</h1>
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
-    </ui-gmap-google-map>
+    <div class="content padding">
+      <h1>{{asset.name}}</h1>
+      <div id="google-map" style="min-height:10px; width:100%; background:#ccc;"></div>
+
+      <button ng-click="takePicture()" class="button icon-middle ion-camera button-positive activated"></button>
+      <button ng-click="selectImage()" class="button icon-middle ion-upload button-positive activated"></button>
+      <input type="file" multiple onchange="angular.element(this).scope().filePickerUpload(this.files)" />
+      <div ng-repeat="image in assetImages">
+         <img ng-src="{{image.src}}" />
+      </div>
+
+        <div class="item item-icon-left bar bar-header bar-energized">
+          <i class="icon ion-wrench"></i>
+          <b>Service Requests</b>
+        </div>
+        <div ng-show="!hasServiceRequests" class="list card">
+          <p>There are no service requests currently for this asset.</p>
+        </div>
+        <div ng-repeat="request in asset.serviceRequests">
+          <div class="card">
+            <div class="item item-divider">
+              {{request.title}}
+            </div>
+            <div class="item item-text-wrap">
+              {{request.details}}
+            </div>
+          </div>
+        </div>
+      <button ng-click="openServiceRequestModal()" class="button button-block button-positive activated">Add New Request</button>
+    </div>
   </ion-content>
 </ion-view>
+
+<script id="service-request-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">New Service Request</h1>
+      <div class="buttons">
+        <button class="button button-clear" ng-click="closeServiceRequestModal()">Close</button>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+      <form ng-submit="saveServiceRequest()">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Title</span>
+            <input type="text" ng-model="serviceRequest.title">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Details</span>
+            <textarea rows="6" ng-model="serviceRequest.details" class="text-input ng-pristine ng-valid ng-touched" autocomplete="off" autocorrect="off"></textarea>
+          </label>
+          <label class="item">
+            <button class="button button-block button-positive" type="submit">Save</button>
+          </label>
+        </div>
+      </form>
+    </ion-content>
+  </ion-modal-view>
+</script>

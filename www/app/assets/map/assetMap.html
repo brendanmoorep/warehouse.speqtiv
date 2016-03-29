@@ -1,6 +1,5 @@
 <ion-view cache-view="false" view-title="Asset Map">
   <ion-content>
-    <h1>Map</h1>
     <ui-gmap-google-map center="map.center"
                         zoom="map.zoom"
                         draggable="true"
@@ -11,5 +10,16 @@
       <ui-gmap-markers models="map.markers" idkey="map.markers.id" coords="'self'" icon="'icon'">
       </ui-gmap-markers>
     </ui-gmap-google-map>
+    <div class="tabs tabs-icon-only">
+      <a class="tab-item" ng-click="showAssetListModal">
+        <i class="icon ion-home"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-star"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-gear-a"></i>
+      </a>
+    </div>
   </ion-content>
 </ion-view>

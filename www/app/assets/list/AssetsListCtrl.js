@@ -1,5 +1,7 @@
-angular.module('warehouse').controller('AssetsListCtrl',['$scope','assetServices', function($scope, assetServices){
-  $scope.assets = assetServices.getAssets();
+angular.module('warehouse').controller('AssetsListCtrl',['$scope','$rootScope','assetServices', function($scope,$rootScope, assetServices){
+  assetServices.getAssets().then(function(){
+    $scope.assets = $rootScope.assets;
+  });
 }]);
 
 

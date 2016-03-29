@@ -1,10 +1,34 @@
 (function(){
   angular.module('warehouse')
     .constant('DB_URL','https://warehouse-speqtiv.firebaseio.com/')
-    .factory('assetServices', ['DB_URL',function(DB_URL){
-      var assets = JSON.parse('[{"id" : "1", "name" : "asset 1", "lat" : "1234", "long" : "0000"},{"id" : "2", "name" : "asset 2", "lat" : "1234", "long" : "0000"},{"id" : "3", "name" : "asset 3", "lat" : "1234", "long" : "0000"}]');
+    .factory('assetServices', ['$rootScope','$q','DB_URL', '$firebaseArray','$cordovaLocalNotification','$cordovaDialogs',function($rootScope,$q,DB_URL, $firebaseArray,$cordovaLocalNotification,$cordovaDialogs){
+
+      var assetsRef = {};
+
       var getAssets = function(){
-        return assets;
+        var deferred = $q.defer();
+        var assetsRef = new Firebase(DB_URL).child('assets');
+        console.log(assetsRef);
+        var assetsArray = $firebaseArray(assetsRef);
+        $rootScope.assetsRef = assetsRef;
+        $rootScope.assets = assetsArray;
+        assetsArray.$loaded(function() {
+          deferred.resolve();
+        });
+        return deferred.promise;
+      };
+
+      var getAsset = function(assetId){
+        var deferred = $q.defer();
+        if(!$rootScope.assets){
+          getAssets().then(function(){
+            deferred.resolve($rootScope.assets.$getRecord(assetId));
+          });
+        }else{
+            deferred.resolve($rootScope.assets.$getRecord(assetId));
+        }
+
+        return deferred.promise;
       };
 
       var addAsset = function(asset){
@@ -32,7 +56,9 @@
       };
 
       return {
+        assetsRef : assetsRef,
         getAssets : getAssets,
+        getAsset : getAsset,
         addAsset : addAsset
       }
     }]);

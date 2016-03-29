@@ -13,16 +13,14 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-   <!-- <script async defer
-            src="//maps.googleapis.com/maps/api/js?key=AIzaSyCQO1mT3GQpPtGOk8RIuxqMVt-39uBSdNI">
-    </script>-->
-
     <!-- ionic/angularjs js -->
     <!--<script src='lib/lodash/dist/lodash.3.10.1.js'></script>-->
+    <script src="lib/underscore/underscore-min.js"></script>
     <script src='lib/lodash/lodash.min.js'></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src='lib/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
     <script src="lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
+    <script src="http://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
 
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
@@ -50,12 +48,16 @@
     <!-- Services -->
     <script src="services/assetServices.js"></script>
     <script src="services/geoLocationServices.js"></script>
+    <script src="services/messagingServices.js"></script>
+    <script src="services/imageServices.js"></script>
+
+    <!-- Directives -->
+
 
   </head>
 
   <body ng-app="warehouse" class="platform-ios platform-cordova platform-webview">
     <ion-nav-view></ion-nav-view>
-    <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAWFNrB9IwIungGuYDn-WsgcErT7ZGQ9F0&sensor=false"></script>
-    <!--<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>-->
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAWFNrB9IwIungGuYDn-WsgcErT7ZGQ9F0&sensor=false&libraries=geometry'></script>
   </body>
 </html>

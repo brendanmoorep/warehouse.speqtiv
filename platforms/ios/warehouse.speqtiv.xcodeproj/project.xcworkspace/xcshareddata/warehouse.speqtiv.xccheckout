@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B1A4D85E-4E0B-4808-8B25-866366CA19AE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>warehouse.speqtiv</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3E942DFCDA88FB5E0E696DD2DA02D5B77299535E</key>
+		<string>https://github.com/brendanmoorep/warehouse.speqtiv.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/warehouse.speqtiv.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3E942DFCDA88FB5E0E696DD2DA02D5B77299535E</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/brendanmoorep/warehouse.speqtiv.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3E942DFCDA88FB5E0E696DD2DA02D5B77299535E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3E942DFCDA88FB5E0E696DD2DA02D5B77299535E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>warehouse.speqtiv</string>
+		</dict>
+	</array>
+</dict>
+</plist>

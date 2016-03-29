@@ -9,4 +9,4 @@
   height: 100%;
 }
 
-.angular-google-map-container { height: 400px; }
+.angular-google-map-container { min-height: 600px; }

@@ -1,20 +1,34 @@
 (function(){
   angular.module('warehouse')
     .constant('DB_URL','https://warehouse-speqtiv.firebaseio.com/')
-    .factory('assetServices', ['$q','DB_URL', '$firebaseArray',function($q,DB_URL, $firebaseArray){
+    .factory('assetServices', ['$rootScope','$q','DB_URL', '$firebaseArray','$cordovaLocalNotification','$cordovaDialogs',function($rootScope,$q,DB_URL, $firebaseArray,$cordovaLocalNotification,$cordovaDialogs){
 
+      var assetsRef = {};
 
       var getAssets = function(){
         var deferred = $q.defer();
         var assetsRef = new Firebase(DB_URL).child('assets');
-        //assetsRef.on("value", function(snapshot) {
-        //  console.log(snapshot);
-        //    deferred.resolve(snapshot.val());
-        //  }, function (errorObject) {
-        //      console.log("The read failed: " + errorObject.code);
-        //  });
-        return $firebaseArray(assetsRef);
-        //return deferred.promise;
+        console.log(assetsRef);
+        var assetsArray = $firebaseArray(assetsRef);
+        $rootScope.assetsRef = assetsRef;
+        $rootScope.assets = assetsArray;
+        assetsArray.$loaded(function() {
+          deferred.resolve();
+        });
+        return deferred.promise;
+      };
+
+      var getAsset = function(assetId){
+        var deferred = $q.defer();
+        if(!$rootScope.assets){
+          getAssets().then(function(){
+            deferred.resolve($rootScope.assets.$getRecord(assetId));
+          });
+        }else{
+            deferred.resolve($rootScope.assets.$getRecord(assetId));
+        }
+
+        return deferred.promise;
       };
 
       var addAsset = function(asset){
@@ -42,7 +56,9 @@
       };
 
       return {
+        assetsRef : assetsRef,
         getAssets : getAssets,
+        getAsset : getAsset,
         addAsset : addAsset
       }
     }]);

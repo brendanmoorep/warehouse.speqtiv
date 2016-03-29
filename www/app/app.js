@@ -13,7 +13,9 @@ angular.module('warehouse', ['ngCordova','ionic', 'firebase','uiGmapgoogle-maps'
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
-
+        if(device.platform === "iOS") {
+          window.plugin.notification.local.promptForPermission();
+        }
       }
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
@@ -122,13 +124,13 @@ angular.module('warehouse', ['ngCordova','ionic', 'firebase','uiGmapgoogle-maps'
       })
 
       .state('app.account', {
-     url: '/account',
-     views: {
-     'mainContent': {
-     templateUrl: 'app/account/account.html',
-     controller: 'AccountCtrl'
-     }
-     }
+        url: '/account',
+        views: {
+          'mainContent': {
+          templateUrl: 'app/account/account.html',
+          controller: 'AccountCtrl'
+        }
+      }
      });
 
     // if none of the above states are matched, use this as the fallback
